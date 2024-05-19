@@ -1,0 +1,7 @@
+<mat-list class="cursor-pointer">
+    <mat-list-item style="cursor: pointer;" *ngFor="let item of filteredNavItems" 
+    [@slideIn] (click)="navigate(item.path)" class="cursor-pointer hover:bg-gray-200">
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <h3 matListItemTitle>{{ item.label }}</h3>
+    </mat-list-item>
+</mat-list>

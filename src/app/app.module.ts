@@ -35,7 +35,6 @@ import { ViewCommentComponent } from './home/post/comment/view-comment/view-comm
 import { NotificationComponent } from './components/notification/notification.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { TimeStampPipe } from './components/pipe/time-stamp.pipe';
-import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,7 +51,6 @@ import { ProfileComponent } from './components/profile/profile.component';
         NotificationComponent,
         LogoutComponent,
         TimeStampPipe,
-        ProfileComponent
     ],
     imports: [
         BrowserModule,

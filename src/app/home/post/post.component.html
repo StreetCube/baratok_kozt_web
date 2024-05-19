@@ -1,0 +1,50 @@
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-4 relative">
+    <div class="absolute top-4 right-4">
+        <button  [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="deletePost()">
+                <mat-icon>delete</mat-icon>
+                <span>Delete post</span>
+            </button>
+        </mat-menu>
+    </div>
+
+    <div class="md:flex">
+        <div class="md:flex-shrink-0">
+            <div>
+                <img class="h-48 w-full object-cover md:w-48" src="https://via.placeholder.com/150" alt="Dummy post image" />
+            </div>
+        </div>
+        <div class="p-8">
+            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{{post.data.title}}</div>
+            <div class="text-gray-500">{{post.data.userName}}</div>
+            <div class="text-gray-500">{{post.data.createdAt | timeStamp | date:'yyyy MMM dd'}}</div>
+            <p class="mt-2 text-gray-500">{{post.data.content}}</p>
+        </div>
+    </div>
+    <div class="p-4 border-t border-gray-200 flex justify-between">
+        @for (reaction of reactions; track $index) {
+            <button (click)="react(reaction.name)" mat-button class="flex items-center space-x-2">
+                <mat-icon class="material-icons-outlined">{{reaction.icon}}</mat-icon>
+                <span> {{reaction.name}} </span>
+                <span class="text-xs">{{post.data.reactions[$index]}}</span>
+            </button>
+        }
+        
+    </div>
+    <mat-expansion-panel #panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <mat-icon class="material-icons-outlined">comment</mat-icon>
+                    <span>Comment</span>
+                </div>
+                <button mat-button>See comments</button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-comment [comments]="post.data.comments" [post]="post"></app-comment>
+        <app-view-comment [panel]="panel" [post]="post"></app-view-comment>
+    </mat-expansion-panel>
+</div>

@@ -1,0 +1,27 @@
+<div class="flex justify-center">
+    <mat-card>
+        <mat-card-title class="text-center">Create Post</mat-card-title>
+        <form [formGroup]="form">
+            <mat-card-content>
+                <mat-form-field class="w-full">
+                    <mat-label>Title</mat-label>
+                    <input
+                        matInput
+                        formControlName="title"
+                    />
+                </mat-form-field>
+                <mat-form-field class="w-full mt-4">
+                    <mat-label>Content</mat-label>
+                    <textarea matInput formControlName="content">
+    Static Post Content</textarea
+                    >
+                </mat-form-field>
+                <div class="flex justify-between mt-4">
+                    <button type="button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="createPost()">Create Post</button>
+                    <button type="button" mat-raised-button color="accent" (click)="uploadImage()">Upload Image</button>
+                    <button type="button" mat-raised-button color="warn" (click)="closePostForm()">Cancel</button>
+                </div>
+            </mat-card-content>
+        </form>
+    </mat-card>
+</div>

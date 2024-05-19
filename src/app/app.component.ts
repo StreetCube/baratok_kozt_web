@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { HeaderMenuService } from './services/header.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'baratok_kozt_web';
+    constructor(public headerMenuService: HeaderMenuService) {}
 }

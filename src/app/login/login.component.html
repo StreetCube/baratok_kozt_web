@@ -1,0 +1,18 @@
+<div>
+    <button mat-raised-button *ngIf="successLogin" (click)="navigateToHome()">Homepage</button>
+    <h1>Login</h1>
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <p>{{ message }}</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" id="email" name="email" required formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" id="password" name="password" required formControlName="password" />
+        </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <div *ngIf="loginError" class="alert alert-danger">{{ loginError }}</div>
+        <a (click)="toRegister()">Do not have account? <span style="cursor: pointer; color: blue">Register</span></a>
+    </form>
+</div>

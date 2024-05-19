@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "baratok-kozt": {
+      "hosting": {
+        "baratok-kozt": [
+          "baratok-kozt"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "baratok-kozt"
+  }
+}

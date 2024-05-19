@@ -1,0 +1,21 @@
+<div
+    class="border border-gray-300 rounded-lg p-4">
+    <div class="flex justify-center">
+        <div class="border border-gray-300 rounded-lg p-4">
+            <p>Number of posts: 1</p>
+            <!-- rest of your code... -->
+        </div>
+        <button
+            *ngIf="!postFormDisplayed"
+            mat-button
+            (click)="displayPostForm()"
+            >Post</button
+        >
+        <div *ngIf="postFormDisplayed" class="w-1/2 animate-fadeIn">
+            <app-create-post (postFormClosed)="hidePostForm()" (postCreated)="createNewPost($event)"></app-create-post>
+        </div>
+    </div>
+    <div *ngFor="let item of (posts | async)">
+        <app-post [post]="item"></app-post>
+    </div>
+</div>

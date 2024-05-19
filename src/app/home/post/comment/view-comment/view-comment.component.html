@@ -1,0 +1,10 @@
+<div *ngIf="comments.length > 0; else noComments">
+    <div *ngFor="let comment of comments" class="p-4 border-b border-gray-200">
+        <h3 class="font-bold">{{ comment.author }}</h3>
+        <p>{{ comment.content }}</p>
+    </div>
+</div>
+
+<ng-template #noComments>
+    <p>No comments yet.</p>
+</ng-template>
